@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+
+
+.maincolor{
+    color: #2B7D84;
+}
+.mainbgcolor{
+    background-color: #6EA1CC;
+}
