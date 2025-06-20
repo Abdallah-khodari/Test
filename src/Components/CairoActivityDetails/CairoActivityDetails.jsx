@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import pyramids from "../../assets/pyramids.jpg";
+import pyramids from "../../assets/luxor.jpg";
 
 const activities = [
   {
