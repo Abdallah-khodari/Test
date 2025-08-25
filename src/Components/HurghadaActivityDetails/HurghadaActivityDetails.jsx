@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { Carousel } from "flowbite-react";
 import diving from "../../assets/Diving.webp";
 
 const activities = [
@@ -8,7 +9,7 @@ const activities = [
     location: "Hurghada, Egypt",
     price: "160 €",
     duration: "1 day",
-    image: diving,
+    images: [diving, diving, diving], // كرر الصورة هنا
     id: 0,
     details: {
       duration: "1 Day",
@@ -27,7 +28,7 @@ const activities = [
     location: "Hurghada, Egypt",
     price: "45 €",
     duration: "1 day",
-    image: diving,
+    images: [diving, diving, diving],
     id: 1,
     details: {
       duration: "1 Day",
@@ -46,7 +47,7 @@ const activities = [
     location: "Hurghada, Egypt",
     price: "65 €",
     duration: "1 day",
-    image: diving,
+    images: [diving, diving, diving],
     id: 2,
     details: {
       duration: "1 Day",
@@ -65,7 +66,7 @@ const activities = [
     location: "Hurghada, Egypt",
     price: "25 €",
     duration: "1 day",
-    image: diving,
+    images: [diving, diving, diving],
     id: 3,
     details: {
       duration: "1 Day",
@@ -84,7 +85,7 @@ const activities = [
     location: "Hurghada, Egypt",
     price: "40 €",
     duration: "1 day",
-    image: diving,
+    images: [diving, diving, diving],
     id: 4,
     details: {
       duration: "1 Day",
@@ -103,7 +104,7 @@ const activities = [
     location: "Hurghada, Egypt",
     price: "50 €",
     duration: "1 day",
-    image: diving,
+    images: [diving, diving, diving],
     id: 5,
     details: {
       duration: "1 Day",
@@ -122,7 +123,7 @@ const activities = [
     location: "Hurghada, Egypt",
     price: "45 €",
     duration: "1 day",
-    image: diving,
+    images: [diving, diving, diving],
     id: 6,
     details: {
       duration: "1 Day",
@@ -141,7 +142,7 @@ const activities = [
     location: "Hurghada, Egypt",
     price: "35 €",
     duration: "1 day",
-    image: diving,
+    images: [diving, diving, diving],
     id: 7,
     details: {
       duration: "1 Day",
@@ -166,13 +167,18 @@ export default function HurghadaActivityDetails() {
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-10">
-      {/* الصورة */}
+      {/* الصور سلايدر */}
       <div className="rounded-2xl overflow-hidden shadow-lg">
-        <img
-          src={activity.image}
-          alt={activity.title}
-          className="w-full h-80 object-cover"
-        />
+        <Carousel className="w-full h-80">
+          {activity.images.map((img, idx) => (
+            <img
+              key={idx}
+              src={img}
+              alt={activity.title}
+              className="w-full h-80 object-cover"
+            />
+          ))}
+        </Carousel>
       </div>
 
       {/* العنوان */}
