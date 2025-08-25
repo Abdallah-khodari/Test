@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { Carousel } from "flowbite-react";
 import Luxor from "../../assets/luxor.jpg";
 
 const activities = [
@@ -8,7 +9,7 @@ const activities = [
     location: "Luxor, Egypt",
     price: "280 €",
     duration: "1 day",
-    image: Luxor,
+    images: [Luxor, Luxor, Luxor], // كرر الصورة هنا
     id: 1,
     details: {
       duration: "1 Day",
@@ -27,7 +28,7 @@ const activities = [
     location: "Luxor, Egypt",
     price: "85 €",
     duration: "1 day",
-    image: Luxor,
+    images: [Luxor, Luxor, Luxor],
     id: 2,
     details: {
       duration: "1 Day",
@@ -46,7 +47,7 @@ const activities = [
     location: "Luxor, Egypt",
     price: "55 €",
     duration: "1 day",
-    image: Luxor,
+    images: [Luxor, Luxor, Luxor],
     id: 3,
     details: {
       duration: "1 Day",
@@ -64,7 +65,7 @@ const activities = [
 
 export default function LuxorActivityDetails() {
   const { id } = useParams();
-  const activity = activities[id-1];
+  const activity = activities[id - 1];
 
   if (!activity)
     return <p className="text-center mt-10 text-xl">Activity not found</p>;
@@ -72,11 +73,17 @@ export default function LuxorActivityDetails() {
   return (
     <div className="max-w-5xl mx-auto px-6 py-10">
       <div className="rounded-2xl overflow-hidden shadow-lg">
-        <img
-          src={activity.image}
-          alt={activity.title}
-          className="w-full h-80 object-cover"
-        />
+        <Carousel 
+          className="w-full h-80">
+          {activity.images.map((img, idx) => (
+            <img
+              key={idx}
+              src={img}
+              alt={activity.title}
+              className="w-full h-80 object-cover"
+            />
+          ))}
+        </Carousel>
       </div>
 
       <h1 className="text-4xl font-extrabold text-gray-800 mt-8">
