@@ -25,9 +25,9 @@ export default function Nav() {
         rounded
       >
         <NavbarBrand>
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+          <Link to="/Home" className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
             Hurghada Fun
-          </span>
+          </Link>
         </NavbarBrand>
         <div className="flex  md:order-2">
           <Button
