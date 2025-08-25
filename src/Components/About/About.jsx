@@ -4,6 +4,7 @@ import seaimge from "../../assets/Home.jpeg"
 import image1 from "../../assets/1.jpg";
 import safari from "../../assets/safari.jpg";
 import diving from "../../assets/Diving.webp";
+import { Link } from "react-router-dom";
 export default function AboutSection() {
   return (
     <section className="bg-white text-gray-800 px-4 py-10 sm:px-6 lg:px-20 max-w-screen-xl mx-auto">
@@ -92,7 +93,8 @@ export default function AboutSection() {
               image: diving,
             },
           ].map((tour, idx) => (
-            <div
+            <Link
+            to={tour.title === "Historical Tours" ? "/luxor" : tour.title === "Desert Safaris" ? "/cairo" : "/hurghada"}
               key={idx}
               className="bg-white rounded-lg shadow-md hover:shadow-lg transition overflow-hidden"
             >
@@ -105,7 +107,7 @@ export default function AboutSection() {
                 <h4 className="font-semibold text-gray-800">{tour.title}</h4>
                 <p className="text-sm text-gray-600">{tour.desc}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
