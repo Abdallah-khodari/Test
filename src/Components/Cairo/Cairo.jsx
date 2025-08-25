@@ -38,35 +38,41 @@ const packages = [
 
 export default function CairoPackages() {
   return (
-    <div className="flex flex-wrap gap-6 justify-center py-8">
-      {packages.map((pkg, idx) => (
-        <Link to={`/activity/cairo/${pkg.id}`}
-          key={idx}
-          className="bg-white rounded-2xl shadow-md w-80 flex flex-col overflow-hidden"
-        >
-          <img
-            src={pkg.image}
-            alt={pkg.title}
-            className="h-56 w-full object-cover"
-          />
-          <div className="p-5 flex flex-col flex-1">
-            <div className="flex items-center text-gray-500 text-sm mb-2 gap-1">
-              <FaMapMarkerAlt className="inline-block mr-1" />
-              {pkg.location}
+    <>
+      <p className="text-center my-10 font-bold text-2xl">
+        Our Activities in Cairo
+      </p>{" "}
+      <div className="flex flex-wrap gap-6 justify-center py-8">
+        {packages.map((pkg, idx) => (
+          <Link
+            to={`/activity/cairo/${pkg.id}`}
+            key={idx}
+            className="bg-white rounded-2xl shadow-md w-80 flex flex-col overflow-hidden"
+          >
+            <img
+              src={pkg.image}
+              alt={pkg.title}
+              className="h-56 w-full object-cover"
+            />
+            <div className="p-5 flex flex-col flex-1">
+              <div className="flex items-center text-gray-500 text-sm mb-2 gap-1">
+                <FaMapMarkerAlt className="inline-block mr-1" />
+                {pkg.location}
+              </div>
+              <h3 className="font-bold text-lg mb-4">{pkg.title}</h3>
+              <hr className="my-2" />
+              <div className="flex justify-between items-center mt-auto">
+                <span className="font-bold text-gray-800">
+                  Price: <span className="text-blue-900">{pkg.price}</span>
+                </span>
+                <span className="flex items-center text-gray-500 text-sm">
+                  <FaClock className="mr-1" /> {pkg.duration}
+                </span>
+              </div>
             </div>
-            <h3 className="font-bold text-lg mb-4">{pkg.title}</h3>
-            <hr className="my-2" />
-            <div className="flex justify-between items-center mt-auto">
-              <span className="font-bold text-gray-800">
-                Price: <span className="text-blue-900">{pkg.price}</span>
-              </span>
-              <span className="flex items-center text-gray-500 text-sm">
-                <FaClock className="mr-1" /> {pkg.duration}
-              </span>
-            </div>
-          </div>
-        </Link>
-      ))}
-    </div>
+          </Link>
+        ))}
+      </div>
+    </>
   );
 }
